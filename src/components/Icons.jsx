@@ -5,7 +5,7 @@ import VolumeSlider from "./VolumeSlider";
 const Icons = () => {
     const [playingId, setPlayingId] = useState(null);
     const [volume, setVolume] = useState({});
-    const [toggleSlider, setToggleSlider] = useState(null);
+    const [sliderVisibility, setSliderVisibility] = useState({});
     const audioRefs = useRef({});
 
     const handleClick = (iconId, audioSrc) => {
@@ -15,9 +15,17 @@ const Icons = () => {
             audioRefs.current[iconId].currentTime = 0;
             delete audioRefs.current[iconId];
 
+            setSliderVisibility(prev => ({
+                ...prev,
+                [iconId]: !prev[iconId]
+            }));
+
             if (playingId === iconId) {
                 setPlayingId(null);
-                setToggleSlider(null);
+                setSliderVisibility(prev => ({
+                    ...prev,
+                    [iconId]: false
+                }));
                 return;
             }
         }
@@ -29,7 +37,10 @@ const Icons = () => {
         audio.play();
     
         setPlayingId(iconId);
-        setToggleSlider(iconId);
+        setSliderVisibility(prev => ({
+            ...prev,
+            [iconId]: true
+        }));
 
         playAllAudio();
     };
@@ -60,7 +71,7 @@ const Icons = () => {
                         style={{ backgroundImage: `url(${icon.img})` }}
                         onClick={() => handleClick(icon.id, icon.audio)}
                     />
-                    {toggleSlider === icon.id && (
+                    {sliderVisibility[icon.id] && (
                     <VolumeSlider
                         volume={volume[icon.id] || 0.5}
                         onVolumeChange={handleVolumeChange(icon.id)}
