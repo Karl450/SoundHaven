@@ -1,6 +1,7 @@
 /** CSS from vite, keep these for now */
 body {
-  background-color: #090909;
+  background-color: #080e22;
+  
 }
 
 #root {
@@ -11,15 +12,16 @@ body {
   text-align: center;
 }
 
-.sound-container {
+.iconContainer {
   display: grid;
   grid-template-columns: repeat(3, 110px);
   justify-content: center;
+  align-items: center;
   gap: 100px;
   padding: 0;
 }
 
-.sound-item {
+.iconWrapper{
   width: 110px;
   height: 140px;
   cursor: pointer;
@@ -28,32 +30,28 @@ body {
   align-items: center;
 }
 
-.sound-icon {
+.iconLogo {
   width: 100%;
   height: 100px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  /* filter: invert(100%) sepia(0) saturate(1%) hue-rotate(87deg) brightness(105%) contrast(101%); */
+  cursor: pointer;
+  filter: invert(100%) sepia(0) saturate(1%) hue-rotate(87deg) brightness(105%) contrast(101%);
 }
 
-.volumeSliderBar {
-  width: auto;
-  padding: 10px;
-  display: block;
-}
-
-.slider {
+.volumeSlider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 15px;
-  background: #e53d14;
+  background: #e1d42a;
   outline: none;
   opacity: 1;
   -webkit-transition: .2s;
   transition: opacity .2s;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 .slider::-webkit-slider-thumb {
