@@ -21,6 +21,7 @@ const Icons = ({ icon }) => {
         }
 
         const audio = new Audio(audioSrc);
+        audio.loop = true;
         audio.volume = localVolume;
         audioRef.current = audio;
         audio.play();
