@@ -15,6 +15,8 @@ import windMP3 from '../assets/audio/wind.mp3';
 import rainMP3 from '../assets/audio/rain.mp3';
 import stormMP3 from '../assets/audio/storm.mp3';
 import seaMP3 from '../assets/audio/sea.mp3';
+import trainMP3 from '../assets/audio/train.mp3';
+import tvMP3 from '../assets/audio/tv.mp3';
 
 const iconsData = [
     {
@@ -63,13 +65,13 @@ const iconsData = [
       id: 8,
       name: "Train",
       img: trainIcon,
-      audio: stormMP3
+      audio: trainMP3
     },
     {
       id: 9,
       name: "TV",
       img: tvIcon,
-      audio: stormMP3
+      audio: tvMP3
     },
   ];
   
